@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--Created by Abhishek-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <script src="https://kit.fontawesome.com/513f91782a.js" crossorigin="anonymous"></script>
+         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <style>
+            *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #dadaec ;
+    
+
+}
+
+.card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 356px;
+    max-height: 590px;
+    overflow: hidden;
+    background: #fff;
+    display:none;
+    
+}
+
+.upper{
+    width: 356px;
+    max-height: 60px;
+    overflow: hidden;
+    background-color: ;
+}
+
+.dpbox{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 3% 2%;
+    display: inline-block;
+}
+
+
+
+.username{
+    display: inline;
+    font-size: small;
+    position: fixed;
+    top:15px;
+    left: 15%;
+    font-family: sans-serif;
+
+}
+
+.location{
+    display: inline;
+    position: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: darkgrey;
+    font-size: xx-small;
+    top: 30px;
+    left: 15%;
+}
+
+.options{
+    position: absolute;
+    top: 20px;
+    right: 26px;
+    color: lightgray;
+}
+
+.postimgcont{
+    max-width: 356px;
+    max-height: 360px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.postimg{
+    width: 100%;
+}
+
+
+.btns{
+    background-color: ;
+    font-size: 1.3rem;
+    height: 40px;
+    line-height: 44px;
+    font-weight: 400;
+    
+
+}
+
+.btn{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    transform: scale(1);
+    margin-left: 8px;
+    background: transparent;
+}
+.btnheart{
+    margin-left: 12px;
+}
+
+.liked{
+    height: 20px;
+    width: 22px;
+    margin-left: 12px;
+    
+}
+
+
+
+.btns .send{
+    transform: scale(1.4);
+    margin-top: 13px;
+    height: 19px;
+}
+
+#bookmark{
+    /* position: fixed;
+    right: 4%;
+    bottom: 15.5%; */
+    float: right; 
+    margin-right: 4%;   
+    transform: translateY(15px);
+    font-weight: 100;
+    
+}
+
+.likes{
+    display: inline;
+    font-size: small;
+    font-family: sans-serif;
+    margin-left: 12px;
+}
+
+.username2{
+    display: inline;
+    font-size: small;
+    font-family: sans-serif;
+
+}
+
+.caption{
+    text-align: left;
+    width: 90%;
+    background-color: ;
+    margin: 0px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: normal;
+    padding-top: 10px;
+}
+
+.hashtags{
+    text-decoration: none;
+
+}
+
+.foot{
+    font-size: x-small;
+    width: 90%;
+    margin: 0px auto;
+    height: 30px;
+    line-height: 30px;
+    font-family:monospace ;
+    font-weight: bold;
+
+}
+
+.foot > span{
+    color: darkgray;
+}
+
+.heart{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-40%,-50%) scale(0);
+    background-color: transparent;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}  
+
+.clicked{
+    animation: show .7s 1 0s ease-out;
+    animation-direction: alternate;
+
+}
+
+@keyframes show{
+    from{
+        transform: translate(-40%,-50%) scale(0.5);
+        opacity: 0;
+    }
+    25%{
+        transform: translate(-40%,-50%) scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: translate(-40%,-50%) scale(1);
+        opacity: 1;
+
+    }
+    75%{
+        transform: translate(-40%,-50%) scale(1);
+        opacity: 1;
+
+    }
+    80%{
+        transform: translate(-40%,-50%) scale(.5);
+        opacity: .5;
+
+
+    }
+    to{
+        transform: translate(-40%,-50%) scale(0) ;
+        opacity: 0;
+
+    }
+}
+
+.left, .right{
+    display: inline-block;
+    height: 50px;
+    width: 40px;
+    background-color: #fff;
+    border-radius: 30px 30px 0px 0px;
+    
+    
+    
+
+}
+
+.left{
+    transform: rotate(-50deg) translate(15px) ;
+
+}
+.right{
+    transform: rotate(50deg) translate(-15px);
+}
+
+
+.h1{
+    display:block ;
+    color:#FF4081;
+    width:100%;
+    height:100vh;
+    line-height:100vh;
+    text-align:center ;
+    font-size:5rem;
+    animation: beat 3s infinite ;
+   /* text-shadow:  2px 2px 100px red,
+                 -1px 0px 1000px red,
+                0px -2px 100px red,
+                0px 2px 100px red;
+*/
+}
+.loader{
+    display: block ;
+}
+@keyframes beat{
+    from{transform:scale(1);
+        opacity:1;}
+    25%{transform:scale(1.5);
+        opacity:1;}
+    50%{transform:scale(1.2);
+        opacity:1;}
+    75%{transform:scale(1.4);
+        opacity:1;}
+    to{transform:scale(1);
+        opacity:1;}
+}
+
+
+
+        </style>
+
+        </head>
+<body>
+    <div class="loader">
+        <i class="fas fa-heart h1" >  
+    
+        </i>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card">
+        <div class="upper">
+           <div class="dpbox">
+            <img src="https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg" alt="DP" height="40px" width="40px" class="dp">
+           </div> 
+           <h2 class="username">Janvi</h2>
+            <i class="fas fa-ellipsis-v options"></i>
+            <h4 class="location">jalgaon</h4>
+        </div>
+        <!--Middle Portion IMG starts here -->
+        <div class="postimgcont">
+            <div class="heart">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <img src="https://picsum.photos/356/360" alt="POST IMG" class="postimg">
+        </div>
+        <div class="btns">
+            <img src="https://i.ibb.co/pLx3gPW/notliked.png" alt="" class="btn btnheart">
+            <img src="https://i.ibb.co/DwRkJss/comment3.png" alt="commenticon" height="20px" width="20px" class="btn">
+            <img src="https://i.ibb.co/LNwq9hx/send.png" alt="" class="btn send">
+            <i class="far fa-bookmark btn" id="bookmark"></i>
+        </div>
+        <h3 class="likes">149 likes</h3>
+        <br>
+        <div class="caption">
+            <h3 class="username2">Janvi</h3> The flowers are real beatuy of nature.
+        <a href="#" class="hashtags">#lorem #ipsum #dolor</a>
+        </div>
+        
+        <div class="foot"><span>1 DAYS AGO • </span> SEE TRANSLATION</div> 
+    </div>
+    </div>
+   <script>
+       $(document).ready(function(){
+		setTimeout(function(){
+        $(".card").css({display:"block"});
+        $(".loader").css({display:"none"});
+    },3000);
+    
+    
+    $(".postimg").dblclick(function(){
+        $(".heart").addClass("clicked");
+        $(".btnheart").attr("src","https://i.ibb.co/9w8DrCW/liked.png");
+        $(".btnheart").addClass("liked");
+    setTimeout(function(){$(".heart").removeClass("clicked")},1000);
+        
+    });
+    
+    setTimeout(function(){
+        alert("Double Tap to Like❤️");
+    },5000)
+   
+});
+
+   </script>
+   <br>
+       <br>
+       <br>
+</body>
+</html>
